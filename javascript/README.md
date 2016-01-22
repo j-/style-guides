@@ -145,6 +145,39 @@
     }
     ```
 
+  * <a name="1.10" href="#1.10">1.10</a>.
+    Do not use tabs for alignment. Tabs can vary in width depending on user/application configuration. Instead, use spaces. They will always appear the same in any editor.
+
+    ```js
+    // Bad (tab width: 4)
+    const foods = [
+        { name: 'Enchiladas',———rating: 60 },
+        { name: 'Burritos',—————rating: 50 },
+        { name: 'Tacos',————————rating: 30 },
+    ];
+
+    // Bad (tab width: 2)
+    const foods = [
+      { name: 'Enchiladas',—rating: 60 },
+      { name: 'Burritos',———rating: 50 },
+      { name: 'Tacos',————rating: 30 },
+    ];
+
+    // Good (tab width: 4)
+    const foods = [
+        { name: 'Enchiladas',···rating: 60 },
+        { name: 'Burritos',·····rating: 50 },
+        { name: 'Tacos',········rating: 30 },
+    ];
+
+    // Good (tab width: 2)
+    const foods = [
+      { name: 'Enchiladas',···rating: 60 },
+      { name: 'Burritos',·····rating: 50 },
+      { name: 'Tacos',········rating: 30 },
+    ];
+    ```
+
 ## 2. Variables
 
   * <a name="2.1" href="#2.1">2.1</a>.
