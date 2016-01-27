@@ -25,6 +25,7 @@
 21. [While loops](#21-while-loops)
 22. [Switch statement](#22-switch-statement)
 23. [With statement](#23-with-statement)
+24. [Promises](#24-promises)
 
 ## 1. Whitespace
 
@@ -1479,3 +1480,37 @@
 
   * <a name="23.1" href="#23.1">23.1</a>.
     No.
+
+## 24. Promises
+
+  * <a name="24.1" href="#24.1">24.1</a>.
+    Use `Promise#catch(fn)` instead of `Promise#then(null, fn)`. `catch` is clearer and can be more concise.
+
+    ```js
+    // Bad, unclear behavior
+    Promise.resolve()
+        .then(() => {
+            throw new Error('Not implemented');
+        }, (err) => {
+            // Does not handle the above error
+            console.error(err);
+        });
+
+    // Bad, verbose
+    Promise.resolve()
+        .then(() => {
+            throw new Error('Not implemented');
+        })
+        .then(null, (err) => {
+            // Handles the above error
+            console.error(err);
+        });
+
+    // Good, clear and concise
+    Promise.resolve()
+        .then(() => {
+            throw new Error('Not implemented');
+        })
+        // Handles the above error
+        .catch((err) => console.error(err));
+    ```
